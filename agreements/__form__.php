@@ -90,7 +90,7 @@ $(function()
   var $users = $('#agreement-users');
 
   $users.select2({
-    width: $company.width(),
+    width: '100%',
     allowClear: true,
     minimumInputLength: 3,
     multiple: true,
@@ -119,6 +119,11 @@ $(function()
   });
 
   $users.select2('data', <?= json_encode($agreement->users) ?>.map(userToSelect2));
+
+  $(window).resize(function()
+  {
+    $users.parent().css('width', $company.outerWidth());
+  }).resize();
 
   function userToSelect2(user)
   {
