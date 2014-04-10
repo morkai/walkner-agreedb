@@ -55,7 +55,6 @@ $filter = array(
   'address' => filter_string_param('address'),
   'krs' => filter_string_param('krs'),
   'nip' => filter_string_param('nip'),
-  'regon' => filter_string_param('regon'),
   'date' => filter_date_param('date'),
   'subject' => filter_string_param('subject')
 );
@@ -70,7 +69,6 @@ apply_string_condition($conditions, $filter, 'address');
 apply_string_condition($conditions, $filter, 'subject');
 apply_maxlen_condition($conditions, 10, $filter, 'krs');
 apply_maxlen_condition($conditions, 10, $filter, 'nip');
-apply_maxlen_condition($conditions, 9, $filter, 'regon');
 
 $user = user_get_data();
 
@@ -140,9 +138,8 @@ $pagedAgreements->fill($totalItems, $agreements);
         <th><label for="filter-address">Adres/siedziba firmy (<kbd>2</kbd>)</label>
         <th class="min"><label for="filter-krs">KRS (<kbd>3</kbd>)</label>
         <th class="min"><label for="filter-nip">NIP (<kbd>4</kbd>)</label>
-        <th class="min"><label for="filter-regon">REGON (<kbd>5</kbd>)</label>
-        <th class="min"><label for="filter-date">Data umowy (<kbd>6</kbd>)</label>
-        <th><label for="filter-subject">Przedmiot umowy (<kbd>7</kbd>)</label>
+        <th class="min"><label for="filter-date">Data umowy (<kbd>5</kbd>)</label>
+        <th><label for="filter-subject">Przedmiot umowy (<kbd>6</kbd>)</label>
         <th class="actions">Akcje
       </tr>
     </thead>
@@ -152,7 +149,6 @@ $pagedAgreements->fill($totalItems, $agreements);
         <td><input id=filter-address name=address type=text value="<?= e($filter['address']) ?>" maxlength="200" accesskey="2">
         <td><input id=filter-krs name=krs type=text value="<?= e($filter['krs']) ?>" maxlength=10 pattern="^[0-9]{3,10}$" accesskey="3">
         <td><input id=filter-nip name=nip type=text value="<?= e($filter['nip']) ?>" maxlength=10 pattern="^[0-9]{3,10}$" accesskey="4">
-        <td><input id=filter-regon name=regon type=text value="<?= e($filter['regon']) ?>" maxlength=9 pattern="^[0-9]{3,9}$" accesskey="5">
         <td><input id=filter-date name=date type=date value="<?= e($filter['date']) ?>" placeholder="YYYY-MM-DD" accesskey="6">
         <td><input id=filter-subject name=subject type=text value="<?= e($filter['subject']) ?>" maxlength="200" accesskey="7">
         <td class="actions">
@@ -172,7 +168,6 @@ $pagedAgreements->fill($totalItems, $agreements);
         <td><?= nl2br(dash_if_empty($agreement->address)) ?>
         <td><?= dash_if_empty($agreement->krs) ?>
         <td><?= dash_if_empty($agreement->nip) ?>
-        <td><?= dash_if_empty($agreement->regon) ?>
         <td><?= date('Y-m-d', $agreement->date) ?>
         <td><?= dash_if_empty($agreement->subject) ?>
         <td class="actions">

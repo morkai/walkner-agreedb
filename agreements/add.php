@@ -66,7 +66,6 @@ $agreement = (object)array_merge(array(
   'address' => '',
   'krs' => '',
   'nip' => '',
-  'regon' => '',
   'date' => time(),
   'subject' => '',
   'uploaded' => 0,

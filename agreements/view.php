@@ -50,8 +50,6 @@ $agreement->date = date('Y-m-d', $agreement->date);
   <dd><?= e($agreement->krs) ?>
   <dt>NIP:
   <dd><?= e($agreement->nip) ?>
-  <dt>REGON:
-  <dd><?= e($agreement->regon) ?>
   <dt>Data umowy:
   <dd><?= $agreement->date ?>
   <dt>Przedmiot umowy:

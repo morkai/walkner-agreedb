@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS `agreements` (
   `address` varchar(200) COLLATE utf8_polish_ci NOT NULL,
   `krs` char(10) COLLATE utf8_polish_ci NOT NULL,
   `nip` char(10) COLLATE utf8_polish_ci NOT NULL,
-  `regon` char(9) COLLATE utf8_polish_ci NOT NULL,
   `date` int(10) unsigned NOT NULL,
   `subject` varchar(200) COLLATE utf8_polish_ci NOT NULL,
   `uploaded` tinyint(1) NOT NULL DEFAULT '0',
@@ -20,7 +19,6 @@ CREATE TABLE IF NOT EXISTS `agreements` (
   KEY `address_1` (`address`),
   KEY `krs_1` (`krs`),
   KEY `nip_1` (`nip`),
-  KEY `regon_1` (`regon`),
   KEY `date_1` (`date`),
   KEY `subject_1` (`subject`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;

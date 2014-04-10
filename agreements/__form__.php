@@ -22,10 +22,6 @@
     <label for=agreement-nip class="control-label">NIP:</label>
     <input id=agreement-nip name=agreement[nip] class="span2" type=text value="<?= $agreement->nip ?>" maxlength=10 pattern="^[0-9]{10}$" placeholder="0000000000">
   </div>
-  <div class="control-group span2">
-    <label for=agreement-regon class="control-label">REGON:</label>
-    <input id=agreement-regon name=agreement[regon] class="span2" type=text value="<?= $agreement->regon ?>" maxlength=9 pattern="^[0-9]{9}$" placeholder="000000000">
-  </div>
 </div>
 <div class="row">
   <div class="control-group span2">

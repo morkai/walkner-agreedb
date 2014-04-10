@@ -100,10 +100,6 @@ br + label {
   font-family: Consolas, Menlo, Monaco, monospace;
   width: 105px;
 }
-.filters input[name=regon] {
-  font-family: Consolas, Menlo, Monaco, monospace;
-  width: 95px;
-}
 .filters input[name=date] {
   font-size: 13px;
   width: 150px;
