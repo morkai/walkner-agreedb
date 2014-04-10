@@ -43,3 +43,15 @@ escape($user);
     <dd><?= $user->manage ? 'Tak' : 'Nie' ?>
   </dl>
 </div>
+
+<? begin_slot('js') ?>
+<script>
+  $(function()
+  {
+    $('.btn-danger').on('click', function()
+    {
+      return confirm('Czy na pewno chcesz bezpowrotnie usunąć wybranego użytkownika?');
+    });
+  });
+</script>
+<? append_slot() ?>

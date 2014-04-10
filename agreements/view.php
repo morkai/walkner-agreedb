@@ -60,3 +60,15 @@ $agreement->alarmDate = $agreement->alarmDate ? date('Y-m-d', $agreement->alarmD
   <dt>Przedmiot alarmu:
   <dd><?= dash_if_empty($agreement->alarmText) ?>
 </dl>
+
+<? begin_slot('js') ?>
+<script>
+  $(function()
+  {
+    $('.btn-danger').on('click', function()
+    {
+      return confirm('Czy na pewno chcesz bezpowrotnie usunąć wybraną umowę?');
+    });
+  });
+</script>
+<? append_slot() ?>
