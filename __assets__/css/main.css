@@ -8,6 +8,9 @@ body {
 .page-header:first-child {
   margin-top: 0;
 }
+.page-header h1 {
+  margin: 0;
+}
 .page-actions {
   list-style: none;
   display: inline-block;
@@ -47,9 +50,6 @@ body {
 }
 p:last-child {
   margin-bottom: 0;
-}
-.navbar .nav > li > a {
-  color: #ccc;
 }
 .input-append .btn:last-child {
   border-radius: 0 3px 3px 0;
