@@ -5,6 +5,9 @@ body {
   padding-top: 60px;
   font-size: 13px;
 }
+.page-header {
+  margin-bottom: 20px;
+}
 .page-header:first-child {
   margin-top: 0;
 }
@@ -100,7 +103,8 @@ br + label {
   font-family: Consolas, Menlo, Monaco, monospace;
   width: 105px;
 }
-.filters input[name=date] {
+.filters input[name=date],
+.filters input[name=alarmDate] {
   font-size: 13px;
   width: 150px;
 }
@@ -108,8 +112,7 @@ br + label {
   width: 1%;
   white-space: nowrap;
 }
-.table tbody tr:hover td,
-.table tbody tr:hover th {
+.table tbody tr:hover td {
   background-color: #FFC;
 }
 .table th label {

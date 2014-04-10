@@ -20,6 +20,7 @@ $agreement = fetch_one($q, array(':id' => $_GET['id']));
 not_found_if(empty($agreement));
 
 $agreement->date = date('Y-m-d', $agreement->date);
+$agreement->alarmDate = $agreement->alarmDate ? date('Y-m-d', $agreement->alarmDate) : '-';
 
 ?>
 
@@ -54,4 +55,8 @@ $agreement->date = date('Y-m-d', $agreement->date);
   <dd><?= $agreement->date ?>
   <dt>Przedmiot umowy:
   <dd><?= e($agreement->subject) ?>
+  <dt>Data alarmu:
+  <dd><?= $agreement->alarmDate ?>
+  <dt>Przedmiot alarmu:
+  <dd><?= dash_if_empty($agreement->alarmText) ?>
 </dl>

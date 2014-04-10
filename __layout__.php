@@ -5,6 +5,7 @@
 // Part of the walkner-agreedb project <http://lukasz.walukiewicz.eu/p/walkner-agreedb>
 
 $menu = array(
+  'alarms' => array(false, 'Alarmy'),
   'agreements' => array(false, 'Umowy'),
   'users' => array(true, 'Użytkownicy')
 );

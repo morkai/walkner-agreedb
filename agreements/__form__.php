@@ -33,6 +33,16 @@
     <input id=agreement-subject name=agreement[subject] class="span4" type=text value="<?= $agreement->subject ?>" required maxlength=200>
   </div>
 </div>
+<div class="row">
+  <div class="control-group span2">
+    <label for=agreement-alarmDate class="control-label">Data alarmu:</label>
+    <input id=agreement-alarmDate name=agreement[alarmDate] class="span2" type=date value="<?= $agreement->alarmDate ? date('Y-m-d', $agreement->alarmDate) : '' ?>" placeholder="YYYY-MM-DD">
+  </div>
+  <div class="control-group span4">
+    <label for=agreement-alarmText class="control-label">Przedmiot alarmu:</label>
+    <input id=agreement-alarmText name=agreement[alarmText] class="span4" type=text value="<?= $agreement->alarmText ?>" maxlength=200>
+  </div>
+</div>
 <div class="control-group">
   <label for=agreement-filepath class="control-label">Ścieżka do pliku w sieci:</label>
   <input id=agreement-filepath name=agreement[filepath] class="span6" type=text value="<?= $agreement->uploaded ? '' : $agreement->filepath ?>" maxlength=250 pattern="^\\\\.+\\.+\.[a-zA-Z0-9]+$" placeholder="\\COMPUTER\Share\File.ext">

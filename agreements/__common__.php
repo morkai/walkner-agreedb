@@ -11,6 +11,7 @@ function agreements_prepare_data($data)
   $data['date'] = empty($data['date']) ? time() : strtotime($data['date']);
   $data['upload'] = empty($_FILES['upload']) || $_FILES['upload']['error'] !== UPLOAD_ERR_OK ? null : $_FILES['upload'];
   $data['uploaded'] = empty($data['filepath']) && $data['upload'] !== null ? 1 : 0;
+  $data['alarmDate'] = empty($data['alarmDate']) ? 0 : strtotime($data['alarmDate']);
 
   if ($data['uploaded'])
   {

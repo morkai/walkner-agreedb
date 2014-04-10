@@ -966,3 +966,45 @@ function get_search_query()
 {
   return empty($_GET['query']) ? '' : addslashes(trim(strip_tags((string)$_GET['query'])));
 }
+
+function filter_date_param($param)
+{
+  return !empty($_GET[$param]) && is_string($_GET[$param]) && preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $_GET[$param]) ? $_GET[$param] : '';
+}
+
+function filter_string_param($param)
+{
+  return !empty($_GET[$param]) && is_string($_GET[$param]) ? trim($_GET[$param]) : '';
+}
+
+function filter_numeric_param($param)
+{
+  return !empty($_GET[$param]) && is_numeric($_GET[$param]) ? intval($_GET[$param]) : '';
+}
+
+function apply_string_condition(&$conditions, $filter, $param)
+{
+  if (!empty($filter[$param]))
+  {
+    $conditions[] = "a.{$param} LIKE '%" . addslashes($filter[$param]) . "%'";
+  }
+}
+
+function apply_maxlen_condition(&$conditions, $maxLength, $filter, $param)
+{
+  if (empty($filter[$param]))
+  {
+    return;
+  }
+
+  $value = addslashes($filter[$param]);
+
+  if (strlen($value) === $maxLength)
+  {
+    $conditions[] = "a.{$param}='{$value}'";
+  }
+  else
+  {
+    $conditions[] = "a.{$param} LIKE '%" . addslashes($value) . "%'";
+  }
+}
