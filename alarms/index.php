@@ -160,7 +160,7 @@ foreach ($agreements as $agreement)
     $agreement->className = 'warning';
   }
 
-  $agreement->dayz = ($agreement->alarmDate - $today) / (24 * 3600);
+  $agreement->dayz = round(($agreement->alarmDate - $today) / (24 * 3600), 1);
 }
 
 $pagedAgreements->fill($totalItems, $agreements);
