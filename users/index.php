@@ -68,7 +68,7 @@ $pagedUsers->fill($totalItems, $users);
     <tr>
       <th>Imię i nazwisko
       <th>Login
-      <th>Zarządzanie umowami
+      <th>Zarządzanie
       <th class="actions">Akcje
     </tr>
   </thead>

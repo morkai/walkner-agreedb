@@ -39,7 +39,7 @@ escape($user);
     <dd><?= $user->name ?>
     <dt>Login:
     <dd><?= $user->login ?>
-    <dt>Zarządzanie umowami:
+    <dt>Zarządzanie:
     <dd><?= $user->manage ? 'Tak' : 'Nie' ?>
   </dl>
 </div>

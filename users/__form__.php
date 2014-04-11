@@ -25,7 +25,7 @@
     </div>
   </div>
   <div class="control-group">
-    <label class="checkbox"><input id=user-manage name=user[manage] type=checkbox value="1" <?= $user->manage ? 'checked' : '' ?>> Zarządzanie umowami</label>
+    <label class="checkbox"><input id=user-manage name=user[manage] type=checkbox value="1" <?= $user->manage ? 'checked' : '' ?>> Zarządzanie</label>
   </div>
   <div class="form-actions">
     <input class="btn btn-large btn-primary" type="submit" value="Zapisz">
