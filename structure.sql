@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS `agreements` (
   `nip` char(10) COLLATE utf8_polish_ci NOT NULL,
   `date` int(10) unsigned NOT NULL,
   `subject` varchar(200) COLLATE utf8_polish_ci NOT NULL,
+  `owner` varchar(200) COLLATE utf8_polish_ci NOT NULL,
   `alarmDate` int(10) unsigned NOT NULL,
   `alarmText` varchar(200) COLLATE utf8_polish_ci NOT NULL,
   `uploaded` tinyint(1) NOT NULL DEFAULT '0',
@@ -24,7 +25,8 @@ CREATE TABLE IF NOT EXISTS `agreements` (
   KEY `date_1` (`date`),
   KEY `subject_1` (`subject`),
   KEY `alarmDate_1` (`alarmDate`),
-  KEY `alarmText_1` (`alarmText`)
+  KEY `alarmText_1` (`alarmText`),
+  KEY `owner_1` (`owner`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 DROP TABLE IF EXISTS `agreements_users`;

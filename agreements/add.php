@@ -68,6 +68,7 @@ $agreement = (object)array_merge(array(
   'nip' => '',
   'date' => time(),
   'subject' => '',
+  'owner' => '',
   'alarmDate' => 0,
   'alarmText' => '',
   'uploaded' => 0,

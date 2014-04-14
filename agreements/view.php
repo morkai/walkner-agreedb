@@ -42,15 +42,17 @@ $agreement->alarmDate = $agreement->alarmDate ? date('Y-m-d', $agreement->alarmD
 
 <dl class="well properties">
   <dt>ID:
-  <dd><?= e($agreement->id) ?>
+  <dd><?= dash_if_empty($agreement->id) ?>
   <dt>Nazwa firmy:
-  <dd><?= e($agreement->company) ?>
+  <dd><?= dash_if_empty($agreement->company) ?>
   <dt>Adres firmy:
-  <dd><?= nl2br(e($agreement->address)) ?>
+  <dd><?= nl2br(dash_if_empty(($agreement->address))) ?>
   <dt>KRS:
-  <dd><?= e($agreement->krs) ?>
+  <dd><?= dash_if_empty($agreement->krs) ?>
   <dt>NIP:
-  <dd><?= e($agreement->nip) ?>
+  <dd><?= dash_if_empty($agreement->nip) ?>
+  <dt>Właściciel:
+  <dd><?= dash_if_empty($agreement->owner) ?>
   <dt>Data umowy:
   <dd><?= $agreement->date ?>
   <dt>Przedmiot umowy:

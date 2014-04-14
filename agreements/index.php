@@ -21,7 +21,8 @@ $filter = array(
   'nip' => filter_string_param('nip'),
   'date' => filter_date_param('date'),
   'alarmDate' => filter_date_param('date'),
-  'subject' => filter_string_param('subject')
+  'subject' => filter_string_param('subject'),
+  'owner' => filter_string_param('owner')
 );
 
 if (empty($filter['id']))
@@ -34,6 +35,7 @@ if (empty($filter['id']))
   apply_string_condition($conditions, $filter, 'company');
   apply_string_condition($conditions, $filter, 'address');
   apply_string_condition($conditions, $filter, 'subject');
+  apply_string_condition($conditions, $filter, 'owner');
   apply_maxlen_condition($conditions, 10, $filter, 'krs');
   apply_maxlen_condition($conditions, 10, $filter, 'nip');
 }
@@ -136,6 +138,7 @@ $pagedAgreements->fill($totalItems, $agreements);
         <th class="min"><label for="filter-nip">NIP (<kbd>5</kbd>)</label>
         <th class="min"><label for="filter-date">Data umowy (<kbd>6</kbd>)</label>
         <th><label for="filter-subject">Przedmiot umowy (<kbd>7</kbd>)</label>
+        <th><label for="filter-owner">Właściciel (<kbd>8</kbd>)</label>
         <th class="actions">Akcje
       </tr>
     </thead>
@@ -148,6 +151,7 @@ $pagedAgreements->fill($totalItems, $agreements);
         <td><input id=filter-nip name=nip type=text value="<?= e($filter['nip']) ?>" maxlength=10 pattern="^[0-9]{3,10}$" accesskey="5">
         <td><input id=filter-date name=date type=date value="<?= e($filter['date']) ?>" placeholder="YYYY-MM-DD" accesskey="6">
         <td><input id=filter-subject name=subject type=text value="<?= e($filter['subject']) ?>" maxlength="200" accesskey="7">
+        <td><input id=filter-owner name=owner type=text value="<?= e($filter['owner']) ?>" maxlength="200" accesskey="8">
         <td class="actions">
           <button class="btn" type="submit" title="Filtruj umowy"><i class="icon-filter"></i></button>
           <a class="btn" href="<?= url_for("agreements") ?>" title="Wyczyść filtry"><i class="icon-remove"></i></a>
@@ -168,6 +172,7 @@ $pagedAgreements->fill($totalItems, $agreements);
         <td><?= dash_if_empty($agreement->nip) ?>
         <td><?= date('Y-m-d', $agreement->date) ?>
         <td><?= dash_if_empty($agreement->subject) ?>
+        <td><?= dash_if_empty($agreement->owner) ?>
         <td class="actions">
           <a class="btn btn-primary" title="Pobierz plik umowy" href="<?= url_for("agreements/download.php?id={$agreement->id}") ?>"><i class="icon-download-alt icon-white"></i></a>
           <a class="btn" title="Wyświetl szczegóły umowy" href="<?= url_for("agreements/view.php?id={$agreement->id}") ?>"><i class="icon-list-alt"></i></a>

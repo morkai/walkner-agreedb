@@ -23,6 +23,10 @@
     <input id=agreement-nip name=agreement[nip] class="span2" type=text value="<?= $agreement->nip ?>" maxlength=10 pattern="^[0-9]{10}$" placeholder="0000000000">
   </div>
 </div>
+<div class="control-group">
+  <label for=agreement-owner class="control-label">Właściciel:</label>
+  <input id=agreement-owner name=agreement[owner] class="span6" type=text value="<?= $agreement->owner ?>" maxlength=200>
+</div>
 <div class="row">
   <div class="control-group span2">
     <label for=agreement-date class="control-label">Data umowy:</label>
