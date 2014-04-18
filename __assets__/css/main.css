@@ -86,7 +86,7 @@ br + label {
   margin-top: 0;
 }
 .filters {
-  background: #ff9;
+  background: #eee;
 }
 .filters input {
   width: 100%;
@@ -114,6 +114,21 @@ br + label {
 }
 .table tbody tr:hover td {
   background-color: #FFC;
+  color: #333;
+}
+.table tbody tr.error > td {
+  background-color: #f00;
+  color: #fff;
+}
+.table tbody tr.error:hover > td {
+  background-color: #e00;
+  color: #fff;
+}
+.table tbody tr.warning > td {
+  background-color: #ff0;
+}
+.table tbody tr.warning:hover > td {
+  background-color: #ee0;
 }
 .table th label {
   margin-bottom: 0;
