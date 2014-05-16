@@ -182,29 +182,27 @@ $filter['dayz'] = empty($filter['dayz']) ? '' : "{$filter['dayz']['cond']}{$filt
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
-        <th class="min"><label for="filter-id">ID (<kbd>ALT+1</kbd>)</label>
-        <th><label for="filter-company">Nazwa firmy (<kbd>2</kbd>)</label>
-        <th class="min"><label for="filter-nip">NIP (<kbd>3</kbd>)</label>
-        <th class="min"><label for="filter-dayz">Dni do wyzwolenia (<kbd>4</kbd>)</label>
-        <th class="min"><label for="filter-date">Data umowy (<kbd>5</kbd>)</label>
-        <th><label for="filter-subject">Przedmiot umowy (<kbd>6</kbd>)</label>
-        <th class="min"><label for="filter-alarmDate">Data alarmu (<kbd>7</kbd>)</label>
-        <th><label for="filter-alarmText">Przedmiot alarmu (<kbd>8</kbd>)</label>
-        <th><label for="filter-owner">Właściciel (<kbd>9</kbd>)</label>
+        <th><label for="filter-company">Nazwa firmy (<kbd>ALT+1</kbd>)</label>
+        <th class="min"><label for="filter-nip">NIP (<kbd>2</kbd>)</label>
+        <th class="min"><label for="filter-dayz">Dni do wyzwolenia (<kbd>3</kbd>)</label>
+        <th class="min"><label for="filter-date">Data umowy (<kbd>4</kbd>)</label>
+        <th><label for="filter-subject">Przedmiot umowy (<kbd>5</kbd>)</label>
+        <th class="min"><label for="filter-alarmDate">Data alarmu (<kbd>6</kbd>)</label>
+        <th><label for="filter-alarmText">Przedmiot alarmu (<kbd>7</kbd>)</label>
+        <th><label for="filter-owner">Właściciel (<kbd>8</kbd>)</label>
         <th class="actions">Akcje
       </tr>
     </thead>
     <thead>
       <tr class="filters">
-        <td><input id=filter-id name=id type=number value="<?= e($filter['id']) ?>" min="1" autofocus accesskey="1">
-        <td><input id=filter-company name=company type=text value="<?= e($filter['company']) ?>" maxlength="200" accesskey="2">
-        <td><input id=filter-nip name=nip type=text value="<?= e($filter['nip']) ?>" maxlength=10 pattern="^[0-9]{3,10}$" accesskey="3">
-        <td><input id=filter-dayz name=dayz type=text value="<?= e($filter['dayz']) ?>" maxlength=10 accesskey="4">
-        <td><input id=filter-date name=date type=date value="<?= e($filter['date']) ?>" placeholder="YYYY-MM-DD" accesskey="5">
-        <td><input id=filter-subject name=subject type=text value="<?= e($filter['subject']) ?>" maxlength="200" accesskey="6">
-        <td><input id=filter-alarmDate name=alarmDate type=date value="<?= e($filter['alarmDate']) ?>" placeholder="YYYY-MM-DD" accesskey="7">
-        <td><input id=filter-alarmText name=alarmText type=text value="<?= e($filter['alarmText']) ?>" maxlength="200" accesskey="8">
-        <td><input id=filter-owner name=owner type=text value="<?= e($filter['owner']) ?>" maxlength="200" accesskey="9">
+        <td><input id=filter-company name=company type=text value="<?= e($filter['company']) ?>" maxlength="200" accesskey="1">
+        <td><input id=filter-nip name=nip type=text value="<?= e($filter['nip']) ?>" maxlength=10 pattern="^[0-9]{3,10}$" accesskey="2">
+        <td><input id=filter-dayz name=dayz type=text value="<?= e($filter['dayz']) ?>" maxlength=10 accesskey="3">
+        <td><input id=filter-date name=date type=date value="<?= e($filter['date']) ?>" placeholder="YYYY-MM-DD" accesskey="4">
+        <td><input id=filter-subject name=subject type=text value="<?= e($filter['subject']) ?>" maxlength="200" accesskey="5">
+        <td><input id=filter-alarmDate name=alarmDate type=date value="<?= e($filter['alarmDate']) ?>" placeholder="YYYY-MM-DD" accesskey="6">
+        <td><input id=filter-alarmText name=alarmText type=text value="<?= e($filter['alarmText']) ?>" maxlength="200" accesskey="7">
+        <td><input id=filter-owner name=owner type=text value="<?= e($filter['owner']) ?>" maxlength="200" accesskey="8">
         <td class="actions">
           <button class="btn" type="submit" title="Filtruj umowy"><i class="icon-filter"></i></button>
           <a class="btn" href="<?= url_for("alarms") ?>" title="Wyczyść filtry"><i class="icon-remove"></i></a>
@@ -218,7 +216,6 @@ $filter['dayz'] = empty($filter['dayz']) ? '' : "{$filter['dayz']['cond']}{$filt
       <? else: ?>
       <? foreach ($pagedAgreements AS $agreement): ?>
       <tr class="<?= $agreement->className ?>">
-        <td><?= dash_if_empty($agreement->id) ?>
         <td><?= dash_if_empty($agreement->company) ?>
         <td><?= dash_if_empty($agreement->nip) ?>
         <td><?= $agreement->dayz ?>
