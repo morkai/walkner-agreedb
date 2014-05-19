@@ -123,7 +123,7 @@ $pagedAgreements->fill($totalItems, $agreements);
     <li><a class="btn" href="<?= url_for('/agreements/add.php') ?>"><i class="icon-plus"></i> Dodaj nową umowę</a>
   </ul>
   <? endif ?>
-  <h1>Umowy <small><?= count($agreements) ?> z <?= $totalItems ?></small></h1>
+  <h1>Umowy <small><?= $pagedAgreements->getOffset() + count($agreements) ?> z <?= $totalItems ?></small></h1>
 </div>
 
 <form id="agreementsFilter" action="<?= url_for("agreements/") ?>">

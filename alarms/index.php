@@ -174,7 +174,7 @@ $filter['dayz'] = empty($filter['dayz']) ? '' : "{$filter['dayz']['cond']}{$filt
 <? decorate('Alarmy') ?>
 
 <div class="page-header">
-  <h1>Alarmy <small><?= count($agreements) ?> z <?= $totalItems ?></small></h1>
+  <h1>Alarmy <small><?= $pagedAgreements->getOffset() + count($agreements) ?> z <?= $totalItems ?></small></h1>
 </div>
 
 <form id="agreementsFilter" action="<?= url_for("alarms/") ?>">
