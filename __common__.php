@@ -48,7 +48,7 @@ function user_can_manage()
 
   $user = user_get_data();
 
-  return $user->manage;
+  return $user->manage == 1;
 }
 
 function no_access_if_cant_manage()

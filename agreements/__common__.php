@@ -77,3 +77,29 @@ function agreements_upload_file(&$data, $agreement = null)
     @unlink(APP_UPLOADS_PATH . $agreement->filepath);
   }
 }
+
+function agreements_check_access($agreement)
+{
+  if (!$agreement->restricted)
+  {
+    return;
+  }
+
+  $user = user_get_data();
+
+  no_access_if_not($user);
+
+  if ($user->manage)
+  {
+    return;
+  }
+
+   $q = <<<SQL
+SELECT 1
+FROM agreements_users
+WHERE agreement=:agreement AND user=:user
+LIMIT 1
+SQL;
+
+  no_access_if_not(fetch_one($q, array(':agreement' => $agreement->id, ':user' => $user->id)));
+}

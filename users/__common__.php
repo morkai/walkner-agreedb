@@ -8,7 +8,7 @@ include_once __DIR__ . '/../__common__.php';
 
 function users_prepare_data($data)
 {
-  $data['manage'] = empty($data['manage']) ? 0 : 1;
+  $data['manage'] = empty($data['manage']) ? 0 : (int)$data['manage'];
 
   if (!empty($data['password']) && !empty($data['password2']) && $data['password'] === $data['password2'])
   {

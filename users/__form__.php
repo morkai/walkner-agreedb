@@ -25,7 +25,10 @@
     </div>
   </div>
   <div class="control-group">
-    <label class="checkbox"><input id=user-manage name=user[manage] type=checkbox value="1" <?= $user->manage ? 'checked' : '' ?>> Zarządzanie</label>
+    <label class="control-label" for="user-manage-none">Uprawnienia:</label>
+    <label class="radio"><input id=user-manage-none name=user[manage] type=radio value="0" <?= $user->manage == 0 ? 'checked' : '' ?>> Brak</label>
+    <label class="radio"><input name=user[manage] type=radio value="1" <?= $user->manage == 1 ? 'checked' : '' ?>> Zarządzanie</label>
+    <label class="radio"><input name=user[manage] type=radio value="2" <?= $user->manage == 2 ? 'checked' : '' ?>> Przeglądanie wszystkich</label>
   </div>
   <div class="form-actions">
     <input class="btn btn-large btn-primary" type="submit" value="Zapisz">

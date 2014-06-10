@@ -19,6 +19,8 @@ $agreement = fetch_one($q, array(':id' => $_GET['id']));
 
 not_found_if(empty($agreement));
 
+agreements_check_access($agreement);
+
 $agreement->date = date('Y-m-d', $agreement->date);
 $agreement->alarmDate = $agreement->alarmDate ? date('Y-m-d', $agreement->alarmDate) : '-';
 

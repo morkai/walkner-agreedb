@@ -4,12 +4,12 @@
 // Licensed under CC BY-NC-SA 4.0 <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 // Part of the walkner-agreedb project <http://lukasz.walukiewicz.eu/p/walkner-agreedb>
 
-include __DIR__ . '/../__common__.php';
+include __DIR__ . '/__common__.php';
 
 bad_request_if(empty($_GET['id']));
 
 $q = <<<SQL
-SELECT uploaded, filepath, filename
+SELECT uploaded, filepath, filename, restricted
 FROM agreements
 WHERE id=:id
 LIMIT 1
@@ -18,6 +18,8 @@ SQL;
 $agreement = fetch_one($q, array(':id' => $_GET['id']));
 
 not_found_if(empty($agreement));
+
+agreements_check_access($agreement);
 
 $ext = explode('.', $agreement->filename);
 $ext = $ext[count($ext) - 1];
