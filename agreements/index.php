@@ -113,6 +113,8 @@ foreach ($agreements as $agreement)
 
 $pagedAgreements->fill($totalItems, $agreements);
 
+$paging = $pagedAgreements->render(url_for("agreements/?perPage={$perPage}&amp;" . http_build_query($filter)));
+
 ?>
 
 <? decorate('Umowy') ?>
@@ -120,10 +122,14 @@ $pagedAgreements->fill($totalItems, $agreements);
 <div class="page-header">
   <? if ($canManage): ?>
   <ul class="page-actions">
+    <li><?= $paging ?>
     <li><a class="btn" href="<?= url_for('/agreements/add.php') ?>"><i class="icon-plus"></i> Dodaj nową umowę</a>
   </ul>
   <? endif ?>
-  <h1>Umowy <small><?= $pagedAgreements->getOffset() + count($agreements) ?> z <?= $totalItems ?></small></h1>
+  <h1>
+    Umowy
+    <small><?= $pagedAgreements->getOffset() + count($agreements) ?> z <?= $totalItems ?></small>
+  </h1>
 </div>
 
 <form id="agreementsFilter" action="<?= url_for("agreements/") ?>">
@@ -184,7 +190,7 @@ $pagedAgreements->fill($totalItems, $agreements);
   </table>
 </form>
 
-<?= $pagedAgreements->render(url_for("agreements/?perPage={$perPage}&amp;" . http_build_query($filter))) ?>
+<?= $paging ?>
 
 <? begin_slot('js') ?>
 <script>

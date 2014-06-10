@@ -19,9 +19,10 @@ body {
   display: inline-block;
   float: right;
 }
-.page-actions li {
+.page-actions > li {
   display: inline-block;
   margin-left: 1em;
+  vertical-align: top;
 }
 .table thead th {
   background-image: linear-gradient(top, white, #E6E6E6);
@@ -167,6 +168,16 @@ input[type="color"],
 input[name=query] {
   border-width: 1px;
 }
+.pagination {
+  line-height: 1;
+}
+.pagination a {
+  min-width: 25px;
+}
+.page-actions .pagination {
+  margin: 0;
+}
+
 @media (max-width: 979px) {
   body {
     padding-top: 0;

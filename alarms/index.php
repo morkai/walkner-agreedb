@@ -169,11 +169,16 @@ $pagedAgreements->fill($totalItems, $agreements);
 
 $filter['dayz'] = empty($filter['dayz']) ? '' : "{$filter['dayz']['cond']}{$filter['dayz']['days']}";
 
+$paging = $pagedAgreements->render(url_for("alarms/?perPage={$perPage}&amp;" . http_build_query($filter)));
+
 ?>
 
 <? decorate('Alarmy') ?>
 
 <div class="page-header">
+  <ul class="page-actions">
+    <li><?= $paging ?>
+  </ul>
   <h1>Alarmy <small><?= $pagedAgreements->getOffset() + count($agreements) ?> z <?= $totalItems ?></small></h1>
 </div>
 
@@ -238,7 +243,7 @@ $filter['dayz'] = empty($filter['dayz']) ? '' : "{$filter['dayz']['cond']}{$filt
   </table>
 </form>
 
-<?= $pagedAgreements->render(url_for("alarms/?perPage={$perPage}&amp;" . http_build_query($filter))) ?>
+<?= $paging ?>
 
 <? begin_slot('js') ?>
 <script>
