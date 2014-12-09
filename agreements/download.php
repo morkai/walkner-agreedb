@@ -21,6 +21,24 @@ not_found_if(empty($agreement));
 
 agreements_check_access($agreement);
 
+$filepath = ($agreement->uploaded ? APP_UPLOADS_PATH : '') . $agreement->filepath;
+
+if (!file_exists($filepath))
+{
+  header('HTTP/1.1 404 Not Found');
+
+  decorate('Plik nie istnieje');
+
+  echo render_message(
+    'Niestety, ale nie wybrany plik umowy nie istnieje lub nie udało się go odczytać.',
+    'error',
+    'Plik nie istnieje',
+    false
+  );
+
+  exit;
+}
+
 $ext = explode('.', $agreement->filename);
 $ext = $ext[count($ext) - 1];
 
@@ -55,4 +73,4 @@ header('Cache-Control: private');
 header('Pragma: private');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 
-readfile(($agreement->uploaded ? APP_UPLOADS_PATH : '') . $agreement->filepath);
+readfile($filepath);
