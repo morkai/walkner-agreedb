@@ -26,7 +26,7 @@ function agreements_prepare_data($data)
 
   if (empty($data['filename']))
   {
-    if ($data['uploaded'])
+    if (!empty($data['uploaded']))
     {
       $data['filename'] = $data['upload']['name'];
     }
