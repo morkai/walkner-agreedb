@@ -6,6 +6,8 @@
 
 include __DIR__ . '/__common__.php';
 
+no_access_if_cant_manage();
+
 if (!empty($_POST['agreement']))
 {
   $data = agreements_prepare_data($_POST['agreement']);
