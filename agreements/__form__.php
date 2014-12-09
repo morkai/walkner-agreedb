@@ -137,15 +137,32 @@ $(function()
     };
   }
 
-  <? if ($mode === 'add'): ?>
   var $filepath = $('#agreement-filepath');
   var $upload = $('#agreement-upload');
+  var $form = $('form');
 
-  $('form').on('submit', function()
+  <? if ($mode === 'add'): ?>
+  $form.on('submit', function()
   {
     if ($filepath.val() === '' && $upload.val() === '')
     {
       alert('Podaj Ścieżkę do pliku w sieci lub wybierz Plik z dysku lokalnego!');
+
+      $filepath.focus();
+
+      return false;
+    }
+
+    return true;
+  });
+  <? else: ?>
+  var $filename = $('#agreement-filename');
+
+  $form.on('submit', function()
+  {
+    if ($filepath.val() === '' && $upload.val() === '' && $filename.val() === '')
+    {
+      alert('Podaj Ścieżkę do pliku w sieci, wybierz Plik z dysku lokalnego lub podaj nazwę dla wcześniej załadowanego pliku z dysku lokalnego!');
 
       $filepath.focus();
 
