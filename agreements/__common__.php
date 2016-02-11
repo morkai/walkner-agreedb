@@ -30,7 +30,7 @@ function agreements_prepare_data($data)
     {
       $data['filename'] = $data['upload']['name'];
     }
-    else
+    else if (!empty($data['filepath']))
     {
       $data['filename'] = basename($data['filepath']);
     }
